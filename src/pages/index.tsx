@@ -5,21 +5,19 @@ Home (index.js)
 import * as React from "react"
 import {
   Box,
-  Text,
   Button,
-  Image,
-  Flex,
-  Spacer,
   Container,
-  AspectRatio,
+  Flex,
   Heading,
-  SimpleGrid,
   Link,
+  SimpleGrid,
+  Spacer,
+  Stack,
+  Text,
 } from "@chakra-ui/react"
 
-import { Stack, HStack, VStack } from "@chakra-ui/react"
-
 import styled from "@emotion/styled"
+import Section from "../components/Section"
 
 /**
  * TODO move to own components
@@ -33,21 +31,6 @@ const Circle = styled.span`
   background-color: rebeccapurple;
 `
 
-const Section: React.FC = ({ children, cWidth, ...props }) => {
-  return (
-    <Box as={"section"} {...props}>
-      <Container
-        centerContent
-        maxWidth={cWidth ?? "container.lg"}
-        h={"full"}
-        justifyContent={"center"}
-      >
-        {children}
-      </Container>
-    </Box>
-  )
-}
-
 /**
  *
  * HOME
@@ -55,30 +38,34 @@ const Section: React.FC = ({ children, cWidth, ...props }) => {
  */
 export default () => (
   <>
+    {/*
+      NAV
+    */}
     <Box as={"nav"} bg={"gray.100"}>
       {/*TODO*/}
       <Container maxWidth={"container.lg"}>
         <Flex justify={"space-between"} align={"center"} py={3}>
           <Box>
             {/*<Image src={"#"} />*/}
-            Produkt
+            <Text as="samp">produkt</Text> <Text as="sup">beta</Text>
           </Box>
 
           <Spacer />
 
           <Box>
-            <Button>Sign up</Button>
+            <Button>Login / Sign up</Button>
           </Box>
         </Flex>
       </Container>
     </Box>
 
     {/*
-      SECTION
+      HERO
     */}
 
-    <Section h={400} bg={"gray.50"} cWidth={"container.md"}>
-      <Heading>Produkt</Heading>
+    <Section h={400} bg={"gray.200"} cWidth={"container.md"}>
+      <Heading>Produkt.</Heading>
+      <Text>A simple product page template.</Text>
     </Section>
 
     {/*
@@ -86,19 +73,19 @@ export default () => (
     */}
 
     <Section>
-      <SimpleGrid columns={[1, 3]} spacing={5} w={"full"} py={16}>
+      <SimpleGrid columns={[1, 3]} spacing={5} w={"full"} py={8}>
         <Box p={5} shadow="md">
-          <Heading fontSize="xl">Item 1</Heading>
-          <Text mt={4}>alta muta Cur nixus congregabo?</Text>
+          <Heading fontSize="xl">Elevatus</Heading>
+          <Text mt={4}>Lapsuss manducare in rusticus amivadum!</Text>
         </Box>
 
         <Box p={5} shadow="md">
-          <Heading fontSize="xl">Item 2</Heading>
+          <Heading fontSize="xl">Agripetas</Heading>
           <Text mt={4}>Accentor de clemens brodium, imperium acipenser!</Text>
         </Box>
 
         <Box p={5} shadow="md">
-          <Heading fontSize="xl">Item 3</Heading>
+          <Heading fontSize="xl">Hydra</Heading>
           <Text mt={4}>Volare etiam ducunt ad camerarius abnoba.</Text>
         </Box>
       </SimpleGrid>
@@ -109,7 +96,11 @@ export default () => (
     */}
 
     <Section>
-      <Flex py={16} w={"full"} wrap={["wrap", "nowrap"]}>
+      <Heading as={"h3"} mt={4} size={"lg"}>
+        Nunquam experientia
+      </Heading>
+
+      <Flex w={"full"} wrap={["wrap", "nowrap"]} py={8}>
         <Box w={["full", 1 / 2]} h={[250, 500]} p={5} bg={"gray.100"} />
 
         <Box w={["full", 1 / 2]} h={[250, 500]} p={5} bg={"gray.50"} />
@@ -121,7 +112,7 @@ export default () => (
     */}
 
     <Section>
-      <Flex py={16} w={"full"} wrap={["wrap", "nowrap"]}>
+      <Flex w={"full"} wrap={["wrap", "nowrap"]} py={8}>
         <Box w={["full", 1 / 2]} h={[250, 500]} p={5} bg={"gray.50"} />
 
         <Box w={["full", 1 / 2]} h={[250, 500]} p={5} bg={"gray.100"} />
@@ -133,15 +124,20 @@ export default () => (
     */}
 
     <Section>
-      <SimpleGrid columns={2} spacing={5} w={"full"}>
-        <Box bg="gray.100" h={160} />
-        <Box bg="gray.100" h={160} />
-        <Box bg="gray.100" h={160} />
-        <Box bg="gray.100" h={160} />
-        <Box bg="gray.100" h={160} />
-        <Box bg="gray.100" h={160} />
+      <Heading as={"h3"} mt={4} size={"lg"}>
+        Rumors tolerare
+      </Heading>
+
+      <SimpleGrid columns={2} spacing={5} w={"full"} py={8}>
+        {[1, 2, 3, 4, 5, 6].map(col => (
+          <Box bg="gray.100" h={160} />
+        ))}
       </SimpleGrid>
     </Section>
+
+    {/*
+      FOOTER
+    */}
 
     <Box as={"footer"} bg={"gray.100"} mt={5}>
       <Container>
@@ -151,25 +147,11 @@ export default () => (
           justify={[null, "center"]}
           py={8}
         >
-          <Link href={"#"}>
-            <Text as={"small"}>Lorem</Text>
-          </Link>
-
-          <Link href={"#"}>
-            <Text as={"small"}>Ipsum</Text>
-          </Link>
-
-          <Link href={"#"}>
-            <Text as={"small"}>Dolor</Text>
-          </Link>
-
-          <Link href={"#"}>
-            <Text as={"small"}>Sit</Text>
-          </Link>
-
-          <Link href={"#"}>
-            <Text as={"small"}>Amet</Text>
-          </Link>
+          {["Lorem", "Ipsum", "Dolor", "Sit", "Amet"].map(item => (
+            <Link href={"#"}>
+              <Text as={"small"}>{item}</Text>
+            </Link>
+          ))}
         </Stack>
       </Container>
     </Box>
