@@ -151,11 +151,25 @@ export default () => (
           justify={[null, "center"]}
           py={8}
         >
-          <Link>Lorem</Link>
-          <Link>Ipsum</Link>
-          <Link>Dolor</Link>
-          <Link>Sit</Link>
-          <Link>Amet</Link>
+          <Link href={"#"}>
+            <Text as={"small"}>Lorem</Text>
+          </Link>
+
+          <Link href={"#"}>
+            <Text as={"small"}>Ipsum</Text>
+          </Link>
+
+          <Link href={"#"}>
+            <Text as={"small"}>Dolor</Text>
+          </Link>
+
+          <Link href={"#"}>
+            <Text as={"small"}>Sit</Text>
+          </Link>
+
+          <Link href={"#"}>
+            <Text as={"small"}>Amet</Text>
+          </Link>
         </Stack>
       </Container>
     </Box>
